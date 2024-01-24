@@ -6,8 +6,8 @@ namespace Tests;
 
 public class SimulatorTest
 {
-    private Simulator _simulator;
-    private Robot _robot = new() { X = 3, Y = 4, Facing = Directions.NORTH };
+    private readonly Simulator _simulator;
+    private readonly Robot _robot = new() { X = 3, Y = 4, Facing = Directions.NORTH };
 
     public SimulatorTest()
     {
