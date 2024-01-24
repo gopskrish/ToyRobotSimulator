@@ -7,7 +7,7 @@ This console application simulates a toy robot moving on a square tabletop. The 
 ## Features
 
 - Commands:
-  - PLACE X,Y,F
+  - PLACE X,Y,F where X and Y integers and F is the Directions
   - MOVE
   - LEFT
   - RIGHT
@@ -17,7 +17,7 @@ This console application simulates a toy robot moving on a square tabletop. The 
   - EAST
   - SOUTH
   - WEST 
-where X and Y integers and F is the Directions
+
 ## Getting Started
 ### Build and Run
 
