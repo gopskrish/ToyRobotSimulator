@@ -27,18 +27,15 @@ where X and Y integers and F is the Directions
    git clone https://github.com/your-username/ToyRobotSimulator.git
    ```
 2. Navigate to the directory
-3. Restore Nuget packages
-     ```bash
-     dotnet restore
-     ```
-4. Build the project
+
+3. Build the project
    ```bash
    dotnet build
    ```
-5. Run the app
+4. Run the app
    ```bash
    dotnet run
    ```
-
+This project can also be run by open it in Visual Studio and running the ToyRobotSimulator project
 ### Output
 Check the commands.txt file for some sample inputs and outputs
