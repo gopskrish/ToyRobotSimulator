@@ -8,7 +8,7 @@ public class Robot
 
     public int Y { get; set; }
 
-    public Direction Facing { get; set; }
+    public Directions Facing { get; set; }
 
-    public bool IsPlaced { get; set; } = false;
+    public bool IsPlaced { get; set; }
 }

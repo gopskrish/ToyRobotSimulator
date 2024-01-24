@@ -12,9 +12,13 @@
   <ItemGroup>
     <None Remove="Models\" />
     <None Remove="enums\" />
+    <None Remove="Constants\" />
+    <None Remove="Interface\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="enums\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Interface\" />
   </ItemGroup>
 </Project>

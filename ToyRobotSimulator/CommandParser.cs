@@ -1,11 +1,7 @@
 ﻿using ToyRobotSimulator.enums;
+using ToyRobotSimulator.Interface;
 
 namespace ToyRobotSimulator;
-
-public interface ICommandParser
-{
-    Commands ParseAndExecute(string commandArgument);
-}
 
 public class CommandParser : ICommandParser
 {
@@ -19,11 +15,12 @@ public class CommandParser : ICommandParser
     public Commands ParseAndExecute(string commandArgument)
     {
         string arg = string.Empty;
-        if(commandArgument.Contains(" "))
+
+        if(commandArgument.Contains(' '))
         {
             int spaceIndex = commandArgument.IndexOf(' ');
-            arg = commandArgument.Substring(spaceIndex + 1);
-            commandArgument = commandArgument.Substring(0, spaceIndex);
+            arg = commandArgument[(spaceIndex + 1)..];
+            commandArgument = commandArgument[..spaceIndex];
         }
 
         if (Enum.TryParse<Commands>(commandArgument, out var result))
@@ -34,7 +31,8 @@ public class CommandParser : ICommandParser
                     string[] args = arg.Split(',');
                     try
                     {
-                        _simulator.Place(int.Parse(args[0].Trim()), int.Parse(args[1].Trim()), (Direction)Enum.Parse(typeof(Direction), args[2].Trim()));
+                        _simulator.Place(int.Parse(args[0].Trim()), int.Parse(args[1].Trim()),
+                            (Directions)Enum.Parse(typeof(Directions), args[2].Trim()));
                     }
                     catch (Exception)
                     {
@@ -45,13 +43,13 @@ public class CommandParser : ICommandParser
                     _simulator.Move();
                     return result;
                 case Commands.LEFT:
-                    _simulator.Left();
-                    return result; ;
+                    _simulator.TurnDirection(Commands.LEFT);
+                    return result; 
                 case Commands.RIGHT:
-                    _simulator.Right();
+                    _simulator.TurnDirection(Commands.RIGHT);
                     return result;
                 case Commands.REPORT:
-                    _simulator.Report();
+                    _simulator.GetReport();
                     return result;
                 default:
                     return result;
@@ -59,7 +57,6 @@ public class CommandParser : ICommandParser
         }
 
         return Commands.UNDEFINED;
-
     }
 }
 

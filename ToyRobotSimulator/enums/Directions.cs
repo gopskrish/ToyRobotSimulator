@@ -1,6 +1,6 @@
 ﻿namespace ToyRobotSimulator.enums;
 
-public enum Direction
+public enum Directions
 {
     NORTH = 0,
     EAST,

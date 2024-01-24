@@ -1,36 +1,31 @@
 ﻿using ToyRobotSimulator.enums;
+using ToyRobotSimulator.Interface;
 using ToyRobotSimulator.Models;
 
 namespace ToyRobotSimulator;
 
-public interface ISimulator
-{
-    void Place(int x, int y, Direction facing);
-    void Move();
-    void Left();
-    void Right();
-    void Report();
-}
-
 public class Simulator : ISimulator
 {
     private readonly Robot _robot;
+    private const int MinX = 0;
+    private const int MinY = 0;
+    private const int MaxX = 4;
+    private const int MaxY = 4;
 
     public Simulator(Robot robotModel)
     {
         _robot = robotModel;
     }
 
-    public void Place(int x, int y, Direction facing)
+    public void Place(int x, int y, Directions facing)
     {
-        if (x >= 0 && x <= 4 && y >= 0 && y <= 4)
+        if (CanPlace(x, y))
         {
             _robot.X = x;
             _robot.Y = y;
             _robot.Facing = facing;
             _robot.IsPlaced = true;
         }
-
     }
 
     public void Move()
@@ -39,35 +34,30 @@ public class Simulator : ISimulator
         {
             switch (_robot.Facing)
             {
-                case Direction.NORTH:
-                    if (_robot.Y < 4) _robot.Y++;
+                case Directions.NORTH:
+                    Place(_robot.X, _robot.Y + 1, _robot.Facing);
                     break;
-                case Direction.SOUTH:
-                    if (_robot.Y > 0) _robot.Y--;
+                case Directions.SOUTH:
+                    Place(_robot.X, _robot.Y - 1, _robot.Facing);
                     break;
-                case Direction.EAST:
-                    if (_robot.X < 4) _robot.X++;
+                case Directions.EAST:
+                    Place(_robot.X + 1, _robot.Y, _robot.Facing);
                     break;
-                case Direction.WEST:
-                    if (_robot.X > 0) _robot.X--;
+                case Directions.WEST:
+                    Place(_robot.X - 1, _robot.Y, _robot.Facing);
                     break;
             }
         }
     }
 
-    public void Right()
+    public void TurnDirection(Commands commands)
     {
         if (_robot.IsPlaced)
-            _robot.Facing = (Direction)(((int)_robot.Facing + 3) % 4);
+            _robot.Facing = (commands == Commands.RIGHT) ?
+                (Directions)(((int)_robot.Facing + 3) % 4) : (Directions)(((int)_robot.Facing + 1) % 4);
     }
 
-    public void Left()
-    {
-        if (_robot.IsPlaced)
-            _robot.Facing = (Direction)(((int)_robot.Facing + 1) % 4);
-    }
-
-    public void Report()
+    public void GetReport()
     {
         if (_robot.IsPlaced)
         {
@@ -78,5 +68,9 @@ public class Simulator : ISimulator
             Console.WriteLine("The Toy Robot is not yet Placed");
         }
     }
+
+    private static bool CanPlace(int x, int y)
+        => (x >= MinX && x <= MaxX && y >= MinY && y <= MaxY);
+ 
 }
 
