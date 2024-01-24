@@ -36,9 +36,9 @@ public class CommandParser : ICommandParser
                     {
                         _simulator.Place(int.Parse(args[0].Trim()), int.Parse(args[1].Trim()), (Direction)Enum.Parse(typeof(Direction), args[2].Trim()));
                     }
-                    catch (Exception exception)
+                    catch (Exception)
                     {
-                        Console.WriteLine("Error: ", exception);
+                        Console.WriteLine("Invalid Commands/Arguments");
                     }
                     return result;
                 case Commands.MOVE:

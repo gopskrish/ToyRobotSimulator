@@ -1,0 +1,142 @@
+1.
+
+```
+PLACE 0,0,NORTH
+MOVE
+REPORT
+Output: 0,1,NORTH
+```
+
+2.
+
+```
+place 0,0,north
+move
+report
+Output: 0, 1, NORTH
+```
+
+3.
+
+```
+PLACE 0,0,NORTH
+LEFT
+REPORT
+Output: 0,0,WEST
+```
+
+4.
+
+```
+MOVE
+REPORT
+The Toy Robot is not yet Placed
+```
+
+5.
+
+```
+MOVE
+REPORT
+The Toy Robot is not yet Placed
+```
+
+6.
+
+```
+PLACE 3,4, WEST
+RIGHT
+MOVE
+LEFT
+MOVE
+REPORT
+Output: 2, 3, WEST
+```
+
+7.
+
+```
+PLACE 3,1,EAST
+LEFT
+MOVE
+PLACE 0,0, WEST
+REPORT
+Output: 0, 0, WEST
+```
+
+8.
+
+```
+PLACE 2,3, SOUTH
+RIGHT
+MOVE
+REPORT
+Output: 3, 3, EAST
+```
+
+9.
+
+```
+PLACE 2,3, SOUTH
+LEFT
+MOVE
+REPORT
+Output: 1, 3, WEST
+```
+
+10.
+
+```
+PLACE 2,3, SOUTH
+MOVE
+REPORT
+Output: 2, 2, SOUTH
+```
+
+11.
+
+```
+PLACE 2,3, SOUTH
+LEFT
+LEFT
+REPORT
+Output: 2, 3, NORTH
+```
+
+12.
+
+```
+PLACE 5,5, NORTH
+REPORT
+The Toy Robot is not yet Placed
+```
+
+13.
+
+```
+PLACE 4,4,SOUTH
+MOVE
+REPORT
+Output: 4, 3, SOUTH
+
+```
+
+14.
+
+```
+PLACE 4,4, NORTH
+MOVE
+REPORT
+Output: 4, 4, NORTH
+
+```
+
+15.
+
+```
+PLACE 0,3,EAST
+MOVE
+REPORT
+Output: 0, 3, WEST
+
+```
