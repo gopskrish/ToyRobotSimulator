@@ -54,7 +54,7 @@ public class Simulator : ISimulator
     {
         if (_robot.IsPlaced)
             _robot.Facing = (commands == Commands.RIGHT) ?
-                (Directions)(((int)_robot.Facing + 3) % 4) : (Directions)(((int)_robot.Facing + 1) % 4);
+                (Directions)(((int)_robot.Facing + 3) % MaxX) : (Directions)(((int)_robot.Facing + 1) % MaxX);
     }
 
     public void GetReport()
@@ -69,7 +69,7 @@ public class Simulator : ISimulator
         }
     }
 
-    private static bool CanPlace(int x, int y)
+    public bool CanPlace(int x, int y)
         => (x >= MinX && x <= MaxX && y >= MinY && y <= MaxY);
  
 }

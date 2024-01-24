@@ -1,63 +1,51 @@
 ﻿using ToyRobotSimulator;
-using Moq;
-using ToyRobotSimulator.Interface;
 using ToyRobotSimulator.enums;
+using ToyRobotSimulator.Models;
 
 namespace Tests;
 
-public class CommandParserTest
+public class SimulatorTest
 {
-    private readonly CommandParser CommandParser;
-    public CommandParserTest()
+    private Simulator _simulator;
+    private Robot _robot = new() { X = 3, Y = 4, Facing = Directions.NORTH };
+
+    public SimulatorTest()
     {
-        CommandParser = new CommandParser(new Mock<ISimulator>().Object);
+        _simulator = new Simulator(_robot);
     }
 
     [Fact]
-    public void ShouldReturnCommandAsMove()
+    public void ShouldReturnCanPlaceAsTrueIfBothPositionsAreWithinTheBoard()
     {
-        var command = "MOVE";
-        var result = CommandParser.ParseAndExecute(command);
-        Assert.Equal(Commands.MOVE, result);
+        var result = _simulator.CanPlace(3, 3);
+        Assert.True(result);
     }
 
     [Fact]
-    public void ShouldReturnCommandAsLeft()
+    public void ShouldReturnCanPlaceAsFalseIfTheXPositionIsNotWithinTheBoard()
     {
-        var command = "LEFT";
-        var result = CommandParser.ParseAndExecute(command);
-        Assert.Equal(Commands.LEFT, result);
+        var result = _simulator.CanPlace(-1, 3);
+        Assert.False(result);
     }
 
     [Fact]
-    public void ShouldReturnCommandAsRight()
+    public void ShouldReturnCanPlaceAsFalseIfTheYPositionIsNotWithinTheBoard()
     {
-        var command = "RIGHT";
-        var result = CommandParser.ParseAndExecute(command);
-        Assert.Equal(Commands.RIGHT, result);
+        var result = _simulator.CanPlace(3, 5);
+        Assert.False(result);
     }
 
     [Fact]
-    public void ShouldReturnCommandAsPlace()
+    public void ShouldReturnCanPlaceAsFalseIfBothPositionIsNotWithinTheBoard()
     {
-        var command = "PLACE";
-        var result = CommandParser.ParseAndExecute(command);
-        Assert.Equal(Commands.PLACE, result);
+        var result = _simulator.CanPlace(-1, 5);
+        Assert.False(result);
     }
 
     [Fact]
-    public void ShouldReturnCommandAsReport()
+    public void ShouldPlaceTheRobotInRightPosition()
     {
-        var command = "REPORT";
-        var result = CommandParser.ParseAndExecute(command);
-        Assert.Equal(Commands.REPORT, result);
-    }
-
-    [Fact]
-    public void ShouldReturnCommandAsUndefinedForUnknownCommands()
-    {
-        var command = "PLCE";
-        var result = CommandParser.ParseAndExecute(command);
-        Assert.Equal(Commands.UNDEFINED, result);
+        var result = _simulator.CanPlace(-1, 5);
+        Assert.False(result);
     }
 }
