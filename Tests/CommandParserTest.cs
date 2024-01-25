@@ -19,7 +19,7 @@ public class CommandParserTest
     public void ShouldReturnCommandAsMove()
     {
         var command = "MOVE";
-        var result = _commandParser.ParseAndExecute(command);
+        var result = _commandParser.ExecuteCommand(command);
         Assert.Equal(Commands.MOVE, result);
     }
 
@@ -27,7 +27,7 @@ public class CommandParserTest
     public void ShouldReturnCommandAsLeft()
     {
         var command = "LEFT";
-        var result = _commandParser.ParseAndExecute(command);
+        var result = _commandParser.ExecuteCommand(command);
         Assert.Equal(Commands.LEFT, result);
     }
 
@@ -35,7 +35,7 @@ public class CommandParserTest
     public void ShouldReturnCommandAsRight()
     {
         var command = "RIGHT";
-        var result = _commandParser.ParseAndExecute(command);
+        var result = _commandParser.ExecuteCommand(command);
         Assert.Equal(Commands.RIGHT, result);
     }
 
@@ -43,7 +43,7 @@ public class CommandParserTest
     public void ShouldReturnCommandAsPlace()
     {
         var command = "PLACE";
-        var result = _commandParser.ParseAndExecute(command);
+        var result = _commandParser.ExecuteCommand(command);
         Assert.Equal(Commands.PLACE, result);
     }
 
@@ -51,7 +51,7 @@ public class CommandParserTest
     public void ShouldReturnCommandAsReport()
     {
         var command = "REPORT";
-        var result = _commandParser.ParseAndExecute(command);
+        var result = _commandParser.ExecuteCommand(command);
         Assert.Equal(Commands.REPORT, result);
     }
 
@@ -59,7 +59,7 @@ public class CommandParserTest
     public void ShouldReturnCommandAsUndefinedForUnknownCommands()
     {
         var command = "PLCE";
-        var result = _commandParser.ParseAndExecute(command);
+        var result = _commandParser.ExecuteCommand(command);
         Assert.Equal(Commands.UNDEFINED, result);
     }
 
@@ -68,7 +68,7 @@ public class CommandParserTest
     {
         _simulatorMock.Setup(X => X.Place(3, 4, Directions.NORTH)).Verifiable();
         var command = "PLACE 3,4,NORTH";
-        var result = _commandParser.ParseAndExecute(command);
+        var result = _commandParser.ExecuteCommand(command);
         Assert.Equal(Commands.PLACE, result);
         _simulatorMock.Verify(X => X.Place(3, 4, Directions.NORTH), Times.Once);
     }

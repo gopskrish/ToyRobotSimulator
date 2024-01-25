@@ -26,5 +26,5 @@ Commands command;
 do
 {
     var input = Console.ReadLine().ToUpper().Trim();
-    command = commandParser.ParseAndExecute(input);
+    command = commandParser.ExecuteCommand(input);
 } while (command != Commands.REPORT);

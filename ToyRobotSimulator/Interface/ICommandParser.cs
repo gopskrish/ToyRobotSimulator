@@ -4,7 +4,7 @@ namespace ToyRobotSimulator.Interface;
 
 public interface ICommandParser
 {
-    Commands ParseAndExecute(string commandArgument);
+    Commands ExecuteCommand(string commandArgument);
 }
 
 

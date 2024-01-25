@@ -12,7 +12,7 @@ public class CommandParser : ICommandParser
         _simulator = simulator;
     }
 
-    public Commands ParseAndExecute(string commandArgument)
+    public Commands ExecuteCommand(string commandArgument)
     {
         string arg = string.Empty;
 
