@@ -69,7 +69,7 @@ public class Simulator : ISimulator
         }
     }
 
-    public bool CanPlace(int x, int y)
+    public static bool CanPlace(int x, int y)
         => (x >= MinX && x <= MaxX && y >= MinY && y <= MaxY);
  
 }

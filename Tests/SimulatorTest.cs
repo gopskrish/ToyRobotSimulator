@@ -17,35 +17,35 @@ public class SimulatorTest
     [Fact]
     public void ShouldReturnCanPlaceAsTrueIfBothPositionsAreWithinTheBoard()
     {
-        var result = _simulator.CanPlace(3, 3);
+        var result = Simulator.CanPlace(3, 3);
         Assert.True(result);
     }
 
     [Fact]
     public void ShouldReturnCanPlaceAsFalseIfTheXPositionIsNotWithinTheBoard()
     {
-        var result = _simulator.CanPlace(-1, 3);
+        var result = Simulator.CanPlace(-1, 3);
         Assert.False(result);
     }
 
     [Fact]
     public void ShouldReturnCanPlaceAsFalseIfTheYPositionIsNotWithinTheBoard()
     {
-        var result = _simulator.CanPlace(3, 5);
+        var result = Simulator.CanPlace(3, 5);
         Assert.False(result);
     }
 
     [Fact]
     public void ShouldReturnCanPlaceAsFalseIfBothPositionIsNotWithinTheBoard()
     {
-        var result = _simulator.CanPlace(-1, 5);
+        var result = Simulator.CanPlace(-1, 5);
         Assert.False(result);
     }
 
     [Fact]
     public void ShouldPlaceTheRobotInRightPosition()
     {
-        var result = _simulator.CanPlace(-1, 5);
+        var result = Simulator.CanPlace(-1, 5);
         Assert.False(result);
     }
 }
