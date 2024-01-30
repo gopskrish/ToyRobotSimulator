@@ -7,5 +7,6 @@ public enum Commands
     MOVE,
     LEFT,
     RIGHT,
-    REPORT
+    REPORT,
+    EXIT
 }

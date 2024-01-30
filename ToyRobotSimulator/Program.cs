@@ -18,7 +18,8 @@ Console.WriteLine(@"1. PLACE X,Y,F (Where X and Y are numbers between 0-4 and F 
 2. MOVE
 3. LEFT
 4. RIGHT
-5. REPORT");
+5. REPORT
+Enter exit to stop the Simulator");
 
 Console.WriteLine("Please enter your commands");
 
@@ -27,4 +28,4 @@ do
 {
     var input = Console.ReadLine().ToUpper().Trim();
     command = commandParser.ExecuteCommand(input);
-} while (command != Commands.REPORT);
+} while (command != Commands.EXIT);

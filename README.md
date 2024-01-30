@@ -12,6 +12,7 @@ This console application simulates a toy robot moving on a square tabletop. The 
   - LEFT
   - RIGHT
   - REPORT
+  - EXIT
 - Directions:
   - NORTH
   - EAST
@@ -42,3 +43,5 @@ where X and Y integers and F is the Directions
 
 ### Output
 Check the commands.txt file for some sample inputs and outputs
+
+To stop the simulator type the command EXIT

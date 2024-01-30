@@ -51,6 +51,7 @@ public class CommandParser : ICommandParser
                 case Commands.REPORT:
                     _simulator.GetReport();
                     return result;
+                case Commands.EXIT:
                 default:
                     return result;
             }
