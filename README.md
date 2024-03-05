@@ -1,7 +1,6 @@
 # ToyRobotSimulator
 
 ## Overview
-
 This console application simulates a toy robot moving on a square tabletop. The robot can be placed on the table, moved, rotated, and its position reported. The simulation is constrained within a 5x5 unit tabletop.
 
 ## Features
