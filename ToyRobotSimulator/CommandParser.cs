@@ -31,7 +31,7 @@ public class CommandParser : ICommandParser
                     string[] args = arg.Split(',');
                     try
                     {
-                        _simulator.Place(int.Parse(args[0].Trim()), int.Parse(args[1].Trim()),
+                        _simulator.PlaceToyRobot(int.Parse(args[0].Trim()), int.Parse(args[1].Trim()),
                             (Directions)Enum.Parse(typeof(Directions), args[2].Trim()));
                     }
                     catch (Exception)

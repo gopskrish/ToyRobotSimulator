@@ -17,7 +17,7 @@ public class Simulator : ISimulator
         _robot = robotModel;
     }
 
-    public void Place(int x, int y, Directions facing)
+    public void PlaceToyRobot(int x, int y, Directions facing)
     {
         if (CanPlace(x, y))
         {
